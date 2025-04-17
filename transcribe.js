@@ -5,7 +5,7 @@ const FormData = require('form-data');
 
 async function transcribe() {
   const form = new FormData();
-  form.append('file', fs.createReadStream('./audio.mp3')); // cambia con il tuo file
+  form.append('file', fs.createReadStream('./audio.wav')); // cambia con il tuo file
   form.append('model', 'whisper-1');
 
   try {
