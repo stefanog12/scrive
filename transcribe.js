@@ -3,6 +3,8 @@ const fs = require('fs');
 const axios = require('axios');
 const FormData = require('form-data');
 
+console.log("Chiave API:", process.env.OPENAI_API_KEY);
+
 async function transcribe() {
   const form = new FormData();
   form.append('file', fs.createReadStream('./audio.wav')); // cambia con il tuo file
@@ -17,6 +19,7 @@ async function transcribe() {
           ...form.getHeaders(),
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         },
+        timeout: 60000 // 60 secondi
       }
     );
 
